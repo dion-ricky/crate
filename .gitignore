@@ -1,0 +1,6 @@
+# Ignore python virtual env
+venv
+
+# Ignore IDE config
+.idea
+.vscode
