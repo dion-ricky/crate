@@ -1,5 +1,5 @@
 import json
-from typing import Any, Union, Optional
+from typing import Any, Union, Optional, List
 from datetime import datetime
 from urllib.parse import urlparse, urlencode, quote_plus, urlunparse
 
@@ -26,14 +26,14 @@ DisplayTypeQuery = {
 class ScraperOptions:
     def __init__(
         self,
-        words: Optional[Union[str, list[str]]] = None,
-        words_any: Optional[Union[str, list[str]]] = None,
+        words: Optional[Union[str, List[str]]] = None,
+        words_any: Optional[Union[str, List[str]]] = None,
         hashtag: Optional[str] = None,
         since: Optional[Union[datetime, str]] = None,
         until: Optional[Union[datetime, str]] = None,
         to_account: Optional[str] = None,
         from_account: Optional[str] = None,
-        mention_account: Optional[Union[str, list[str]]] = None,
+        mention_account: Optional[Union[str, List[str]]] = None,
         lang: Optional[str] = None,
         display_type: \
             Optional[Union[TweetDisplayType, str]] = TweetDisplayType.TOP,
@@ -89,15 +89,15 @@ def coalesce(*args) -> Optional[Any]:
     
     return None
 
-def join_if_list(x: Union[str, list[str]], sep: str) -> str:
+def join_if_list(x: Union[str, List[str]], sep: str) -> str:
     if type(x) == list:
         return f"{sep}".join(x)
     else:
         return x
 
 def prepend(
-    x: Union[str, list[str]],
-    pre: str) -> Union[str, list[str]]:
+    x: Union[str, List[str]],
+    pre: str) -> Union[str, List[str]]:
     if type(x) == list:
         return [f"{pre}{i}" for i in x]
     else:
@@ -184,8 +184,8 @@ class Tweet:
         reply_count: int,
         retweet_count: int,
         like_count: int,
-        emojis: list[str],
-        image_links: list[str]) -> None:
+        emojis: List[str],
+        image_links: List[str]) -> None:
         self._data = {
             "tweet_id": tweet_id,
             "tweet_url": tweet_url,

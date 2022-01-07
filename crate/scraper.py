@@ -1,7 +1,6 @@
 import re
-import random
 from time import sleep
-from typing import Optional
+from typing import Optional, List
 from urllib.parse import urlsplit
 
 from selenium.webdriver.common.by import By
@@ -46,7 +45,7 @@ class Scraper:
 
         return tweets
     
-    def __get_tweets(self) -> list[Tweet]:
+    def __get_tweets(self) -> List[Tweet]:
         tweets = []
         
         # Wait for twitter to finish loading tweet
