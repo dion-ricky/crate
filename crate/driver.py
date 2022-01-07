@@ -3,7 +3,6 @@ from typing import Any, Optional, Union
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
 
 import chromedriver_autoinstaller
 
@@ -50,10 +49,8 @@ class Driver:
         if options.option:
             driver_options.add_argument(options.option)
 
-        service = Service(executable_path=chromedriver_path)
-
         self.driver = webdriver.Chrome(
-                            service=service,
+                            executable_path=chromedriver_path,
                             options=driver_options)
     
     def get(self, url: str):

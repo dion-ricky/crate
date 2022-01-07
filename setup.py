@@ -34,7 +34,7 @@ setup(
         "outcome==1.1.0",
         "pycparser==2.21",
         "pyOpenSSL==21.0.0",
-        "selenium==4.1.0",
+        "selenium==3.14.1",
         "six==1.16.0",
         "sniffio==1.2.0",
         "sortedcontainers==2.4.0",
