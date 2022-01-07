@@ -1,0 +1,54 @@
+from distutils.core import setup
+import io
+import os
+
+# Long description from README file
+here = os.path.abspath(os.path.dirname(__file__))
+
+with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+    long_description = '\n' + f.read()
+
+VERSION = '0.1.1'
+
+setup(
+    name="crate",
+    packages=["crate"],
+    version=VERSION,
+    license="MIT",
+    description="Twitter scraper",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    author="Dion Ricky Saputra",
+    author_email="code@dionricky.com",
+    url="https://github.com/dion-ricky/crate",
+    keywords=["twitter", "scraper", "crawl", "scrape", "tweet"],
+    install_requires=[
+        "async-generator==1.10",
+        "attrs==21.4.0",
+        "certifi==2021.10.8",
+        "cffi==1.15.0",
+        "chromedriver-autoinstaller==0.3.1",
+        "cryptography==36.0.1",
+        "h11==0.12.0",
+        "idna==3.3",
+        "outcome==1.1.0",
+        "pycparser==2.21",
+        "pyOpenSSL==21.0.0",
+        "selenium==4.1.0",
+        "six==1.16.0",
+        "sniffio==1.2.0",
+        "sortedcontainers==2.4.0",
+        "trio==0.19.0",
+        "trio-websocket==0.9.2",
+        "urllib3==1.26.7",
+        "wsproto==1.0.0"
+    ],
+    classifiers=[
+        'Development Status :: 4 - Beta',
+        'Intended Audience :: Developers',
+        'Topic :: Software Development :: Build Tools',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.9',
+    ]
+)

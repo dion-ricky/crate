@@ -4,3 +4,6 @@ venv
 # Ignore IDE config
 .idea
 .vscode
+
+# Ignore python cache
+__pycache__
