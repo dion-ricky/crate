@@ -8,7 +8,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = '\n' + f.read()
 
-VERSION = '0.1.1'
+VERSION = '0.1.2'
 
 setup(
     name="crate",
@@ -21,6 +21,7 @@ setup(
     author="Dion Ricky Saputra",
     author_email="code@dionricky.com",
     url="https://github.com/dion-ricky/crate",
+    download_url="https://github.com/dion-ricky/crate/archive/refs/tags/v0.1.2.tar.gz",
     keywords=["twitter", "scraper", "crawl", "scrape", "tweet"],
     install_requires=[
         "async-generator==1.10",
@@ -48,7 +49,9 @@ setup(
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
     ]
 )
