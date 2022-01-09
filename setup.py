@@ -2,12 +2,6 @@ from distutils.core import setup
 import io
 import os
 
-# Long description from README file
-here = os.path.abspath(os.path.dirname(__file__))
-
-with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
-    long_description = '\n' + f.read()
-
 VERSION = '0.1.2'
 
 setup(
@@ -16,8 +10,6 @@ setup(
     version=VERSION,
     license="MIT",
     description="Twitter scraper",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
     author="Dion Ricky Saputra",
     author_email="code@dionricky.com",
     url="https://github.com/dion-ricky/crate",
