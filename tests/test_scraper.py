@@ -1,3 +1,4 @@
+import os
 import json
 import unittest
 import hashlib
@@ -89,3 +90,44 @@ class TestScraper(unittest.TestCase):
         self.assertEqual(tweet.tweet_id, compare.tweet_id)
         self.assertEqual(tweet.tweet_url, compare.tweet_url)
         self.assertEqual(tweet.text, compare.text)
+    
+    def test_driver_path_options(self):
+        current_path = os.path.dirname(os.path.realpath(__file__))
+
+        do = DriverOptions(
+            driver_path=os.path.join(current_path, 'driver/chromedriver'),
+            headless=True
+        )
+
+        scraper = Scraper(do)
+        
+        # Scrape from bot account for testing
+        so = ScraperOptions(
+            from_account="whataweekhuh",
+            since="2022-01-01",
+            until="2022-01-07"
+        )
+
+        tweet = json.loads(repr(scraper.scrape(so)))[0]
+        tweet = Tweet(**tweet)
+
+        compare = Tweet(
+            tweet_id="1478696530051678209",
+            tweet_url="https://twitter.com/whataweekhuh/status/1478696530051678209",
+            display_name="What a week, huh? all Wednesdays",
+            username="@whataweekhuh",
+            created_date="2022-01-05T11:55:00.000Z",
+            text="",
+            embedded="106\n15.1K\n69.4K",
+            reply_count="106",
+            retweet_count="15.1K",
+            like_count="69.4K",
+            emojis=[],
+            image_links=["https://pbs.twimg.com/media/ErAWtcNXcAIoD3N?format=jpg&name=small"]
+        )
+
+        print(tweet)
+
+        self.assertEqual(tweet.tweet_id, compare.tweet_id)
+        self.assertEqual(tweet.tweet_url, compare.tweet_url)
+        self.assertEqual(tweet.image_links, compare.image_links)

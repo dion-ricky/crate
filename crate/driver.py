@@ -10,6 +10,7 @@ import chromedriver_autoinstaller
 class DriverOptions:
     def __init__(
         self,
+        driver_path: Optional[str]=None,
         headless: Optional[bool]=True,
         proxy: Optional[str]=None,
         show_images: Optional[bool]=False,
@@ -28,7 +29,11 @@ class Driver:
     def __init__(
         self,
         options: Optional[DriverOptions]) -> None:
-        chromedriver_path = chromedriver_autoinstaller.install()
+
+        if options and options.driver_path == None:
+            chromedriver_path = chromedriver_autoinstaller.install()
+        else:
+            chromedriver_path = options.driver_path
 
         driver_options = Options()
         driver_options.add_argument("log-level=3")
